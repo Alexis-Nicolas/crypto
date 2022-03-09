@@ -15,7 +15,7 @@ public enum NomProtocole {
     SUBSTITUTION("Substitution","Sym"),
     TRANSPOSITION("Transposition","Sym"),
     VIGENERE("Vigenere","Sym"),
-    RLE("RLE","COMP");
+    RLE("RLE","Comp");
     
     //--------------------------
     

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: iutdijon.cryptomessengerclient.modele.protocoles.realisations.TranspositionBourrageTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec <<< FAILURE!
-iutdijon.cryptomessengerclient.modele.protocoles.realisations.TranspositionBourrageTest.testBourrage()  Time elapsed: 0.028 sec  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec <<< FAILURE!
+iutdijon.cryptomessengerclient.modele.protocoles.realisations.TranspositionBourrageTest.testBourrage()  Time elapsed: 0.033 sec  <<< FAILURE!
 org.opentest4j.AssertionFailedError: array contents differ at index [5][3], expected: <X> but was: <Y>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
 	at org.junit.jupiter.api.AssertArrayEquals.failArraysNotEqual(AssertArrayEquals.java:432)

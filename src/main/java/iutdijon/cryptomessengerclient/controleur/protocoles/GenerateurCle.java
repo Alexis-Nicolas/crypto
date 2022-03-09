@@ -60,7 +60,7 @@ public static String genererCleSubstitution(){
 
 public static String genererCleRLE(){
     String s="";
-    int c = ((int) (Math.random() * (9-2+1))+2);
+    int c = 2+(int) (Math.random() * ((9-2)+1));
     s = Integer.toString(c);
     return s;
 }

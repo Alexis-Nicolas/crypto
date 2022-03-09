@@ -33,7 +33,7 @@ public class FabriqueEcranProtocole {
                 if(nomEcran.equals("ENVOI"))  stage.setScene(new EcranBrutEnvoi()); 
                 if(nomEcran.equals("RECEPTION")) stage.setScene(new EcranBrutReception());
                 break;
-            case CESAR: case SUBSTITUTION: case TRANSPOSITION: case VIGENERE: case FEISTEL:
+            case CESAR: case SUBSTITUTION: case TRANSPOSITION: case VIGENERE:
                 if(nomEcran.equals("ENVOI")) stage.setScene(new EcranSymetriqueEnvoi(protocole));
                 if(nomEcran.equals("RECEPTION")) stage.setScene(new EcranSymetriqueReception(protocole));
 		break;

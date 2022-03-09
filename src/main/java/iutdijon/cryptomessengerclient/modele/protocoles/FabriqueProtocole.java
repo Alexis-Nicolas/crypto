@@ -2,6 +2,7 @@ package iutdijon.cryptomessengerclient.modele.protocoles;
 
 import iutdijon.cryptomessengerclient.modele.protocoles.realisations.ProtocoleBrut;
 import iutdijon.cryptomessengerclient.modele.protocoles.realisations.ProtocoleCesar;
+import iutdijon.cryptomessengerclient.modele.protocoles.realisations.ProtocoleRLE;
 import iutdijon.cryptomessengerclient.modele.protocoles.realisations.ProtocoleSubstitution;
 import iutdijon.cryptomessengerclient.modele.protocoles.realisations.ProtocoleTransposition;
 import iutdijon.cryptomessengerclient.modele.protocoles.realisations.ProtocoleVigenere;
@@ -34,6 +35,9 @@ public class FabriqueProtocole {
                 break;
             case VIGENERE:
                 protocole = new ProtocoleVigenere();
+                break;
+            case RLE:
+                protocole = new ProtocoleRLE();
                 break;
             default : 
                 protocole = null;
