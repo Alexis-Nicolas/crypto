@@ -76,7 +76,7 @@ public class ProtocoleRLE extends Protocole{
             taille++;
         }
         for(int i=0;i<mess.length();i+=taille+1){
-            String s = mess.substring(i, i+(taille-1));
+            String s = mess.substring(i, i+taille);
             
             nbrRep  = Integer.valueOf(s);
             System.out.println("s "+nbrRep);
