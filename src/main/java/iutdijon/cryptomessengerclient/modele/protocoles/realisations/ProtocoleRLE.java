@@ -44,7 +44,23 @@ public class ProtocoleRLE extends Protocole{
 
     @Override
     public Message dechiffrer(Message messageChiffre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String mess = messageChiffre.getCorpsMessage();
+        int c = Integer.valueOf(this.getCle("CLE_COMPRESSION"));
+        String messDecomp = "";
+        int nbrRep;
+        int taille =1;
+        while(c/10>=1){
+            taille++;
+        }
+        for(int i=0;i<mess.length();i+=taille+1){
+            nbrRep  = Character.getNumericValue(mess.charAt(i));
+            for(int j=0;j<nbrRep;j++){
+                messDecomp+=mess.charAt(i+1);
+            }
+        }
+        Message mesDec = new Message(messageChiffre);
+        mesDec.setCorpsMessage(messDecomp);
+        return mesDec;
     }
     
 }
