@@ -14,7 +14,9 @@ public class ProtocoleHuffman extends Protocole {
 
     //ETAPE 1 -- Compter les occurences de chaque caractère
     public HashMap<Character,Integer> compterCaracteres(String corpMessage) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        HashMap<Character,Integer> c = new HashMap<Character,Integer>();
+        
+        return c;
     }
     
     //ETAPE 2 -- Création de l'arbre

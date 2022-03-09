@@ -22,10 +22,12 @@ public class ProtocoleRLE extends Protocole{
         char sauvChar = mess.charAt(0);
         int nbrRep =1;
         int taille =1;
-        while(cle/10>=1){
-            cle=cle/10;
+        int valeurcle=cle;
+        while(valeurcle/10>=1){
+            valeurcle=valeurcle/10;
             taille++;
         }
+        
         if(mess.charAt(mess.length()-1)=='A'){
             mess+='B';
         }
@@ -38,6 +40,7 @@ public class ProtocoleRLE extends Protocole{
                 nbrRep++;
             }
             else{
+                System.out.println(nbrRep);
                 int tailleNbRep = 1;
                 int nbrRepBis = nbrRep;
                 while(nbrRepBis/10>=1){
@@ -45,7 +48,7 @@ public class ProtocoleRLE extends Protocole{
                     nbrRepBis/=10;
                 }
                 if(tailleNbRep<taille){
-                    for(int j=0;j<=taille-tailleNbRep;j++){
+                    for(int j=0;j<taille-tailleNbRep;j++){
                         zero+="0";
                     }
                 }
@@ -74,9 +77,11 @@ public class ProtocoleRLE extends Protocole{
         }
         for(int i=0;i<mess.length();i+=taille+1){
             String s = mess.substring(i, i+(taille-1));
+            
             nbrRep  = Integer.valueOf(s);
+            System.out.println("s "+nbrRep);
             for(int j=0;j<nbrRep;j++){
-                messDecomp+=mess.charAt(i+1);
+                messDecomp+=mess.charAt(i+taille);
             }
         }
         Message mesDec = new Message(messageChiffre);
