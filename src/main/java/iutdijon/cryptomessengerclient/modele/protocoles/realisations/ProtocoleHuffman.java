@@ -64,7 +64,7 @@ public class ProtocoleHuffman extends Protocole {
     //ETAPE 4 - Chiffrement du message
     private String chiffrerMessage(String message,HashMap<Character,String> dictionnaire) {
         String s = "";
-        for(int i=0;i<=message.length();i++){
+        for(int i=0;i<message.length();i++){
             s+=dictionnaire.get(message.charAt(i));
         }
         return s;
