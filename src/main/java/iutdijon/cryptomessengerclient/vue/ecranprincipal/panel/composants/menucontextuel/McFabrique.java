@@ -19,19 +19,9 @@ public class McFabrique {
     public static ContextMenu create(NomProtocole protocole,Node node) {
         ContextMenu menu = null;
         switch(protocole) {
-            case BRUT: 
-                menu = new McBrut(node);  
-            break;
-            case CESAR: case SUBSTITUTION :
-                menu = new McSymetrique(node,protocole); 
-            break;
-            case TRANSPOSITION: 
-                menu = new McSymetrique(node,protocole); 
-            break;
-            case VIGENERE: 
-                menu = new McSymetrique(node,protocole); 
-            break;
-            
+            case BRUT: menu = new McBrut(node);  break;
+            case CESAR: case SUBSTITUTION: case TRANSPOSITION : case VIGENERE: case FEISTEL: menu = new McSymetrique(node,protocole); break;
+            case RLE: menu = new McSymetrique(node,protocole); break;
         }
         return menu;
     }

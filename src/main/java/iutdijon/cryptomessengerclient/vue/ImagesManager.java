@@ -21,6 +21,7 @@ public class ImagesManager {
         this.ajouterImage("Sym", "/images/symetric.png");
         this.ajouterImage("Brut", "/images/brut.png");
         this.ajouterImage("Icon", "/icones/user.png");
+        this.ajouterImage("Comp","/images/compression.png");
     }
     
     private void ajouterImage(String nom, String path) {

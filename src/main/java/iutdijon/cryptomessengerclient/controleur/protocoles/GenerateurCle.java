@@ -57,4 +57,11 @@ public static String genererCleSubstitution(){
         }
        return cle;
 }
+
+public static String genererCleRLE(){
+    String s="";
+    int c = ((int) (Math.random() * (9-2+1))+2);
+    s = Integer.toString(c);
+    return s;
+}
 }
