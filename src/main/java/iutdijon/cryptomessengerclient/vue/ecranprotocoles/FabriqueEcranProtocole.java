@@ -41,6 +41,10 @@ public class FabriqueEcranProtocole {
                 if(nomEcran.equals("ENVOI")) stage.setScene(new EcranCompressionEnvoi(protocole));
                 if(nomEcran.equals("RECEPTION")) stage.setScene(new EcranCompressionReception(protocole));
 		break;
+            case HUFFMAN:
+                if(nomEcran.equals("ENVOI")) stage.setScene(new EcranCompressionEnvoi(protocole));
+                if(nomEcran.equals("RECEPTION")) stage.setScene(new EcranCompressionReception(protocole));
+		break;
         }
         
         stage.show();

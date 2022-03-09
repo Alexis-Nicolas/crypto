@@ -63,6 +63,14 @@ public class Noeud {
      * @param dictionnaire le dictionnaire en cours de construction
      */
     public void calculCode(HashMap<Character,String> dictionnaire) {
-        //TODO
+        if(this.listeFils==null){
+            dictionnaire.put(this.nom.charAt(0),this.code);
+        }
+        else{
+            this.listeFils.get(0).code = this.code+"0";
+            this.listeFils.get(0).calculCode(dictionnaire);
+            this.listeFils.get(1).code = this.code+"1";
+            this.listeFils.get(1).calculCode(dictionnaire);
+        }
     }
 }
