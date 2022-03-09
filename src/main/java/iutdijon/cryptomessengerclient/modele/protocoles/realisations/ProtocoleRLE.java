@@ -50,6 +50,7 @@ public class ProtocoleRLE extends Protocole{
         int nbrRep;
         int taille =1;
         while(c/10>=1){
+            c=c/10;
             taille++;
         }
         for(int i=0;i<mess.length();i+=taille+1){
