@@ -32,6 +32,7 @@ public class ProtocoleRLE extends Protocole{
         else{
             mess+='A';
         }
+        String zero = "";
         for(int i=1;i<=mess.length()-1;i++){
             if(sauvChar==mess.charAt(i)&&nbrRep<cle){
                 nbrRep++;
@@ -44,17 +45,15 @@ public class ProtocoleRLE extends Protocole{
                     nbrRepBis/=10;
                 }
                 if(tailleNbRep<taille){
-                    String zero = "";
                     for(int j=0;j<=taille-tailleNbRep;j++){
                         zero+="0";
                     }
-                    messComp+=zero+String.valueOf(nbrRep)+sauvChar;
                 }
-                else{
-                    messComp+=String.valueOf(nbrRep)+sauvChar;
-                }
+                messComp+=zero+String.valueOf(nbrRep)+sauvChar;
+                
                 sauvChar=mess.charAt(i);
                 nbrRep=1;
+                zero ="";
             }
         }
         Message res = new Message(messageClair);
