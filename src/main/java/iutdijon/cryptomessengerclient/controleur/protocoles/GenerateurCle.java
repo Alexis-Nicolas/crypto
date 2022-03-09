@@ -33,4 +33,28 @@ public static String genererCleVigenere(){
         }
         return cle;
 }
+public static String genererCleSubstitution(){
+    String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    String cle = "";
+    int tab[] = null;
+    boolean v = false;
+       for (int i=0;i<26;i++){
+           int position = (int) (Math.random() * (alphabet.length()));
+           for (int y=0;y<i;y++){
+               if(position!=tab[y]){
+                   v=true;
+                
+                }else{
+                   v=false;
+               }
+           }if (v){
+               cle += alphabet.charAt(position);
+                tab[i]=position;
+           }else{
+                i--;
+            }
+            
+        }
+       return cle;
+}
 }

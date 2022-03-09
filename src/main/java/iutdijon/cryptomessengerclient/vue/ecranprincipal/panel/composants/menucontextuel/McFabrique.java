@@ -22,7 +22,7 @@ public class McFabrique {
             case BRUT: 
                 menu = new McBrut(node);  
             break;
-            case CESAR: 
+            case CESAR: case SUBSTITUTION :
                 menu = new McSymetrique(node,protocole); 
             break;
             case TRANSPOSITION: 
