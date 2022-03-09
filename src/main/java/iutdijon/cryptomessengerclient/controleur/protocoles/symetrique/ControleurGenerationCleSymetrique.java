@@ -26,6 +26,9 @@ public class ControleurGenerationCleSymetrique extends Controleur {
             case CESAR:  
                 ecran.setCle(GenerateurCle.genererCleCesar());  
             break;
+            case SUBSTITUTION:  
+                ecran.setCle(GenerateurCle.genererCleSubstitution());  
+            break;
             case TRANSPOSITION:
                 ecran.setCle(GenerateurCle.genererCleTransposition());
             break;
