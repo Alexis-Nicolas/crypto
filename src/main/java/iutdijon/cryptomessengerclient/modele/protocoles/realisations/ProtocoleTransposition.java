@@ -90,7 +90,7 @@ public class ProtocoleTransposition extends Protocole{
     
     private char bourrage(){
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        int number = this.generateur.nextInt(alphabet.length()+1);
+        int number = this.generateur.nextInt(alphabet.length());
         char bourr = alphabet.charAt(number);
         return bourr;
     }

@@ -23,39 +23,39 @@ public class ProtocoleSubstitution extends Protocole{
         char z = 'z';
         String cle = this.getCle("CLE_SYMETRIQUE");
         char stockage ;
+        String resultat ="" ;
         Message reponse= messageClair;
         String message = reponse.getCorpsMessage();
-        StringBuilder en = new StringBuilder();   
         boolean v = false;
         for(char c:message.toCharArray()){
             if(Character.isLetter(c)){
                 int i =Character.compare(c,A);
                 if((i>=0)&&(Character.compare(c,Z)<=0)){
                     v = true;
-                    for(int y=0;y<26;y++){
+                    for(int y=0;y<alphabet.length();y++){
                        if (c==alphabet.charAt(y)) {
                            int position = y;
-                           en.append(cle.charAt(y));
+                           resultat += cle.charAt(y);
                        }
                     }
                 }else if((Character.compare(c,z)<=0)&&(Character.compare(c,a)>=0)){
                     v=false;
-                    for(int y=0;y<26;y++){
+                    for(int y=0;y<alphabet.length();y++){
                         c=Character.toUpperCase(c);
                         if (c==alphabet.charAt(y)) {
                            int position = y;
                            stockage = cle.charAt(y);
                            
-                           en.append(Character.toLowerCase(stockage));
+                           resultat += Character.toLowerCase(stockage);
                        }
                     }
                 }
                     
                 }else{
-                en.append(c);
+                resultat+=c;
             }
         }
-        reponse.setCorpsMessage(en.toString());
+        reponse.setCorpsMessage(resultat.toString());
         return reponse;
     }
 
@@ -80,7 +80,7 @@ public class ProtocoleSubstitution extends Protocole{
                     for(int y=0;y<cle.length();y++){
                        if (c==cle.charAt(y)) {
                            int position = y;
-                           en.append(alphabet.charAt(y));
+                           resultat += alphabet.charAt(y);
                        }
                     }
                 }else if((Character.compare(c,z)<=0)&&(Character.compare(c,a)>=0)){
@@ -91,16 +91,16 @@ public class ProtocoleSubstitution extends Protocole{
                            int position = y;
                            stockage = alphabet.charAt(y);
                            
-                           en.append(Character.toLowerCase(stockage));
+                           resultat += Character.toLowerCase(stockage);
                        }
                     }
                 }
                     
                 }else{
-                en.append(c);
+                resultat+=c;
             }
         }
-        reponse.setCorpsMessage(en.toString());
+        reponse.setCorpsMessage(resultat.toString());
         return reponse;
     }
     

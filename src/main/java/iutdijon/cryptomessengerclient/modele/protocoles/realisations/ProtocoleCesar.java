@@ -20,11 +20,25 @@ public class ProtocoleCesar extends Protocole {
         for(char c:message.toCharArray()){
             if(Character.isLetter(c)){
                 int val = c;
-                c = (char) ((val+parseInt(cle)%26));
+                if (val <= 90 && val >= 65)
+            {
+                val = val + parseInt(cle);
+                    if(val > 90){
+                        val = val - 26;
+                    } 
+            //lettres majuscules
+            }else if(val <= 122 && val >= 97)
+            {
+                val = val + parseInt(cle);
+                if(val > 122){
+                        val = val - 26;
+                 } 
+            }
+                
+                en.append((char)val);
+            }else {
                 en.append(c);
-            }/*else {
-                en.append(c);
-            }*/
+            }
         }
         reponse.setCorpsMessage(en.toString());
         return reponse;

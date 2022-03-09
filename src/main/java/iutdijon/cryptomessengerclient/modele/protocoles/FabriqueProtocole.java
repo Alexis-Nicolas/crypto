@@ -30,6 +30,7 @@ public class FabriqueProtocole {
                 break;
             case SUBSTITUTION:
                 protocole = new ProtocoleSubstitution();
+                break;
             case TRANSPOSITION:
                 protocole = new ProtocoleTransposition();
                 break;
