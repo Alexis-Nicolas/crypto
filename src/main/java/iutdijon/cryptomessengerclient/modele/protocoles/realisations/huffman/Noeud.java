@@ -12,7 +12,11 @@ public class Noeud {
     private String nom;                     //NOM DU NOEUD (caractère(s))                          
     private int valeur;                     //VALEUR (nombre d'occurences)
     private ArrayList<Noeud> listeFils;     //Liste des noeuds fils
-    private String code;                    //Code du noeud
+    private String code;   //Code du noeud
+    
+    public void setCode(String Code){
+        this.code=code;
+    }
     
     /**
      * Constructeur
@@ -67,9 +71,9 @@ public class Noeud {
             dictionnaire.put(this.nom.charAt(0),this.code);
         }
         else{
-            this.listeFils.get(0).code = this.code+"0";
+            this.listeFils.get(0).setCode(this.code+"0");
             this.listeFils.get(0).calculCode(dictionnaire);
-            this.listeFils.get(1).code = this.code+"1";
+            this.listeFils.get(1).setCode(this.code+"1");
             this.listeFils.get(1).calculCode(dictionnaire);
         }
     }
