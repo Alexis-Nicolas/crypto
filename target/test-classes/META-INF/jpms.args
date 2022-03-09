@@ -1,4 +1,0 @@
---patch-module
-iutdijon.cryptomessengerclient=_
---add-reads
-iutdijon.cryptomessengerclient=ALL-UNNAMED
