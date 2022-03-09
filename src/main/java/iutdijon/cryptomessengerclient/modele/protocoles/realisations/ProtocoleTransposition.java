@@ -18,13 +18,40 @@ public class ProtocoleTransposition extends Protocole{
     
     @Override
     public Message chiffrer(Message messageClair) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String cle= getCle("CLE_SYMETRIQUE");
+        String messageCl = messageClair.getCorpsMessage();
+        String messCh = "";
+        char[][] tab = this.remplirTableauChiffrement(messageCl, cle);
+        ArrayList<Integer>ordreColonne=this.getOrdreColonee(cle);
+        for(int i=0;i<ordreColonne.size();i++){
+            for(int j=0;j<tab.length;j++){
+                messCh += tab[j][ordreColonne.get(i)];
+            }
+        }
+        Message messageCr = new Message();
+        messageCr.setCorpsMessage(messCh);
+        return messageCr;
     }
+    
 
     @Override
     public Message dechiffrer(Message messageChiffre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Message mes = new Message(messageChiffre);
+        String messDc = "";
+        String cle= getCle("CLE_SYMETRIQUE");
+        char tab[][] = remplirTableauDechiffrement(messageChiffre.getCorpsMessage(), cle);
+        ArrayList<Integer> ordreColonne = this.getOrdreColonee(cle);
+        int taillex = cle.length();
+        int tailley = messageChiffre.getCorpsMessage().length()/taillex;
+        for(int i =0;i<tailley;i++){
+            for(int j=0;j<taillex;j++){
+                messDc+=tab[ordreColonne.get(j)][i];
+            }
+        }
+        mes.setCorpsMessage(messDc);
+        return mes;
     }
+    
     
     private char[][] remplirTableauChiffrement(String message,String cle){
         ByteBuffer b = ByteBuffer.allocate(4) ;
@@ -51,6 +78,16 @@ public class ProtocoleTransposition extends Protocole{
         return tab;
     }
     
+    private char[][] remplirTableauDechiffrement(String message,String cle){
+        int taillex=cle.length();
+        int tailley = message.length()/taillex;
+        char[][]tab = new char[taillex][tailley];
+        for (int i=0;i<message.length();i++){
+            tab[i%cle.length()][i%cle.length()]=message.charAt(i);
+        }
+        return tab;
+    }
+    
     private char bourrage(){
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         int number = this.generateur.nextInt(alphabet.length()+1);
@@ -58,7 +95,7 @@ public class ProtocoleTransposition extends Protocole{
         return bourr;
     }
     
-  /* private ArrayList<Integer> getOrdreColonee(String cle){
+   private ArrayList<Integer> getOrdreColonee(String cle){
         int taille = cle.length();
         int cmpt = 1;
         ArrayList<Couple> couples = new ArrayList<>();
@@ -68,8 +105,11 @@ public class ProtocoleTransposition extends Protocole{
         }
         ArrayList<Integer> result = new ArrayList<>();
         ComparateurCouple c = new ComparateurCouple();
-        result.sort(c);
+        couples.sort(c);
+        for(int i=0;i<couples.size();i++){
+            result.add(couples.get(i).getPosition());
+        }
         return result;
-    }*/
+    }
     
 }
