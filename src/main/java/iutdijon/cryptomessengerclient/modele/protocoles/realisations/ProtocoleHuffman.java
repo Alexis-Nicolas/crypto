@@ -86,7 +86,12 @@ public class ProtocoleHuffman extends Protocole {
         String sc = chiffrerMessage(s, dictionnaire);
         //On renvoit le message compressé
         Message messComp = new Message(messageClair);
-        messComp.setCorpsMessage(sc);
+        String dico = "";
+        for (Map.Entry<Character, String> entry : dictionnaire.entrySet()) {
+           dico+=entry.getKey()+entry.getValue();
+        }
+        String messCompl = sc+dico;
+        messComp.setCorpsMessage(messCompl);
         return messComp;
     }
 
