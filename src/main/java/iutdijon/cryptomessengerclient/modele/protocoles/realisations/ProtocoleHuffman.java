@@ -94,10 +94,92 @@ public class ProtocoleHuffman extends Protocole {
         messComp.setCorpsMessage(messCompl);
         return messComp;
     }
-
+    // si caractere special, ne fonctionne pas 
     @Override
     public Message dechiffrer(Message messageChiffre) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //recupérationdu message
+        Message reponse= messageChiffre;
+        String message = reponse.getCorpsMessage();
+        char stock='!';
+        String nombre ="";
+        String nb = "";
+        String l="";
+        String result = "";
+        int i = 0;
+        int cpt =0;
+        HashMap<Character,String> dictio = new HashMap<Character,String>();
+        int compteur = 0;
+        int compteur2 = 0;
+        int compteur3 = 0;
+        int compteur4 = 0;
+        boolean b = false;
+        for(char c:message.toCharArray()){
+            if(Character.isLetter(c)){
+                compteur3++;
+                System.out.println("sdfghijl "+ compteur3);
+                l+=c;
+            }
+            System.out.println("llll + " + l);
+        }
+        for(char c:message.toCharArray()){
+            
+                compteur++;
+               // System.out.println("c "+c);
+                if(Character.isLetter(c)){
+                   
+                    compteur2 = compteur;
+                System.out.println("char "+c+" rhoo "+compteur);
+                 if (compteur2<message.length()){
+                   while((compteur2<message.length())&&!Character.isLetter(message.charAt(compteur2))){
+                                nombre += message.charAt(compteur2);
+                                compteur2++;
+                            }
+                                if (compteur4<compteur3){
+                               System.out.println("ok4 "+nombre); 
+                               dictio.put(l.charAt(compteur4),nombre);
+                               nombre = "";
+                               compteur2++;
+                               compteur4++;
+                                }
+                            
+                        }
+                    }
+                }
+            
+         if (compteur4==compteur3){
+                if (nombre!=""){
+                    System.out.println("ok5 "+nombre); 
+                    dictio.put(l.charAt(compteur4),nombre);
+                    nombre = "";
+                }
+        }
+          
+        
+        
+        System.out.println("ok3");
+        for(char c:message.toCharArray()){
+             System.out.println("l1 "+c);
+            if(!Character.isLetter(c)){
+                
+                nb+= c;
+                System.out.println("l2 "+nb);
+                for (Map.Entry<Character, String> entry : dictio.entrySet()) {
+                    System.out.println("l3 "+ entry.toString());
+                    if (nb.equals(entry.getValue())){
+                        System.out.println("l4");
+                      result += entry.getKey();
+                      nb="";
+                    }
+                }
+            }if(Character.isLetter(c)){
+                break;
+            }
+            }
+            
+       
+        reponse.setCorpsMessage(result.toString());
+        return reponse;
+        
     }
     
 }
